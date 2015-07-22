@@ -1,0 +1,27 @@
+<div class="ui centered grid">
+  <div class="row"></div>
+  <div class="row">
+    <div class="eight wide column">
+
+      <% if flash.notice %>
+        <div class="ui warning message">
+          <%= flash.notice %>
+        </div>
+      <% end %>
+
+      <% if @user %>
+        <div class="ui warning message">
+          <h4> User: <%= @user %> </h4>
+          <h3> <%= link_to 'Log out', destroy_session_path, method: :delete %> </h3>
+        </div>
+      <% else %>
+        <h3><%= link_to 'Login', '/auth/custom' %></h3>
+        <h3><%= link_to 'Sign up', '/users/new' %></h3>
+        <%= link_to 'http://localhost:3000/users/login_with_twitter', class: 'ui twitter button' do %>
+          <i class="twitter icon"></i>
+          Login with Twitter
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

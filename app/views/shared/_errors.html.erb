@@ -1,0 +1,7 @@
+<% if flash[:errors] %>
+  <div class="ui error message">
+    <% flash[:errors].each do |error, message| %>
+        <div class="item"> <%= "#{error}: #{message.join(', ')}" %> </div>
+    <% end %>
+  </div>
+<% end %>
