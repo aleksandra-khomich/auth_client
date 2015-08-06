@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/users/confirmation', to: 'users#confirm'
   get '/users/new', to: 'users#new'
   post '/users/create', to: 'users#create'
+  delete '/users/destroy_access_token', to: 'sessions#destroy_access_token'
 end
