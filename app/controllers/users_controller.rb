@@ -49,7 +49,7 @@ class UsersController < ApplicationController
                                       'Accept' => 'application/json'} )
     if result.code == 200
       redirect_to root_path
-    elsif result.code == 422
+    else
       flash[:errors] = result["errors"]
       redirect_to users_new_path(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
     end
