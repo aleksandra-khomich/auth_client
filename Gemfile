@@ -12,7 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-oauth2'
 gem 'httparty'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
-gem 'multiple_man'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
