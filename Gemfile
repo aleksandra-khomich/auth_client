@@ -13,6 +13,7 @@ gem 'omniauth-oauth2'
 gem 'httparty'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'simple_form'
+gem "bunny", ">= 2.0.0"
 
 group :development, :test do
   gem 'byebug'

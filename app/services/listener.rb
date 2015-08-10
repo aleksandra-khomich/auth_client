@@ -23,7 +23,8 @@ class Listener
       begin
         queue.bind(exchange).subscribe(block: true, manual_ack: true) do |delivery_info, properties, body|
           puts "Received #{body}!"
-          process_message(body)
+          result = process_message(body)
+          channel.ack(delivery_info.delivery_tag) if result.is_a? TrueClass
         end
       rescue Interrupt => _
         channel.close

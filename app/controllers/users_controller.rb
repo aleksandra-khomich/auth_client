@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
 
   def finish_sign_up
-    @user = SendRequest.perform(method: 'get', path: 'me.json', query: "token=#{params[:token]}")
+    @user = User.new
   end
 
   def update
-    result = SendRequest.perform(method: 'post', path: 'users/update.json', post_params: post_params)
+    result = SendRequest.perform(method: 'post', path: 'users/update.json', query: "token=#{params[:user][:uid]}", post_params: post_params)
     if result.code == 200
       redirect_to root_path, notice: result["message"]
     else
       flash[:errors] = result["errors"]
-      redirect_to finish_sign_up_path(token: params[:token], first_name: params[:first_name], last_name: params[:last_name])
+      redirect_to :back
     end
   end
 
@@ -22,10 +22,11 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.where(uid: params[:id]).first
   end
 
   def create
@@ -39,15 +40,9 @@ class UsersController < ApplicationController
   end
 
   def post_params
-
     {
         body: {
-            user: {
-                email: params[:email],
-                first_name: params[:first_name],
-                last_name: params[:last_name],
-                password: params[:password]
-            },
+            user: params[:user],
             token: params[:token]
         }.to_json,
         headers: {

@@ -8,8 +8,9 @@
 
       <%= render 'shared/errors' %>
 
-      <%= form_tag '/users/update', class: 'ui large form' do %>
-        <%= render 'shared/fields' %>
+      <%= simple_form_for :user, url: '/users/update', method: 'patch', html: { class: 'ui large form' } do |f| %>
+        <%= render 'shared/fields', f: f %>
+        <%= f.submit 'Confirm email', class: "ui teal button" %>
       <% end %>
     </div>
   </div>

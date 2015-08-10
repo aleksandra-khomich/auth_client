@@ -13,7 +13,7 @@
           <%= f.input :email, wrapper_html: { class: 'field' } %>
           <%= f.input :first_name, wrapper_html: { class: 'field' } %>
           <%= f.input :last_name, wrapper_html: { class: 'field' } %>
-          <%= f.input 'token', as: :hidden %>
+          <%= f.input :uid, as: :hidden, input_html: { value: @user.uid } %>
           <%= f.submit 'Save', class: "ui teal button" %>
         </div>
       <% end %>

@@ -1,20 +1,7 @@
 <div class="ui stacked segment">
-  <div class="field">
-    <%= text_field_tag 'first_name', params[:first_name], { placeholder: 'First name' } %>
-  </div>
-
-  <div class="field">
-    <%= text_field_tag 'last_name', params[:last_name], { placeholder: 'Last name' } %>
-  </div>
-
-  <div class="field">
-    <%= text_field_tag 'email', nil, { placeholder: 'Email' } %>
-  </div>
-
-  <div class="field">
-    <%= password_field_tag 'password', nil, { placeholder: 'Password' } %>
-  </div>
-
-  <%= text_field_tag 'token', params[:token], hidden: true %>
-  <%= submit_tag 'Confirm email', class: "ui teal button" %>
+  <%= f.input :first_name, wrapper_html: { class: 'field' } %>
+  <%= f.input :last_name, wrapper_html: { class: 'field' } %>
+  <%= f.input :email, wrapper_html: { class: 'field' } %>
+  <%= f.input :password, wrapper_html: { class: 'field' } %>
+  <%= f.input :uid, as: :hidden, input_html: { value: params[:token] } %>
 </div>

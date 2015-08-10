@@ -8,8 +8,9 @@
 
       <%= render 'shared/errors' %>
 
-      <%= form_tag '/users/create', class: 'ui large form' do %>
-        <%= render 'shared/fields' %>
+      <%= simple_form_for @user, url: '/users/create', html: { class: 'ui large form' } do |f| %>
+          <%= render 'shared/fields', f: f %>
+          <%= f.submit 'Save', class: "ui teal button" %>
       <% end %>
     </div>
   </div>
