@@ -12,6 +12,7 @@
       <% if @user %>
         <div class="ui warning message">
           <h4> User: <%= @user %> </h4>
+          <h3> <%= link_to 'Edit profile', users_edit_path(@user) %> </h3>
           <h3> <%= link_to 'Log out', destroy_session_path, method: :delete %> </h3>
           <h3> <%= link_to 'Log in with another account', users_destroy_access_token_path, method: :delete %> </h3>
         </div>
